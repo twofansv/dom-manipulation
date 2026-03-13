@@ -4,6 +4,19 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Simple DOM example</title>
+
+    <style>
+    .highlight {
+    color: white;
+    background-color: black;
+    padding: 10px;
+    width: 250px;
+    text-align: center;
+    }
+    </style>
+
+
+
   </head>
   <body>
       <section>
@@ -35,12 +48,7 @@
 
     //linkPara.remove();
 
-    paragraph.style.color = "white";
-
-    paragraph.style.backgroundColor = "black";
-    paragraph.style.padding = "10px";
-    paragraph.style.width = "250px";
-    paragraph.style.textAlign = "center";
+    paragraph.classList.add('highlight');
 
 
 
