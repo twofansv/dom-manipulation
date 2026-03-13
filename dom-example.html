@@ -11,4 +11,38 @@
         <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
       </section>
   </body>
+  <script>
+    const link = document.querySelector('a');
+
+    link.textContent = "Mozilla Developer Network";
+    link.href = "https://developer.mozilla.org";
+
+    const section = document.querySelector("section");
+
+    const paragraph = document.createElement('p');
+
+    paragraph.textContent = "This is a paragraph";
+
+    section.appendChild(paragraph);
+
+    const text = document.createTextNode(" — the premier source for web development knowledge.")
+
+    const linkPara = document.querySelector("p");
+
+    linkPara.appendChild(text);
+
+    section.appendChild(linkPara);
+
+    //linkPara.remove();
+
+    paragraph.style.color = "white";
+
+    paragraph.style.backgroundColor = "black";
+    paragraph.style.padding = "10px";
+    paragraph.style.width = "250px";
+    paragraph.style.textAlign = "center";
+
+
+
+  </script>
 </html>
