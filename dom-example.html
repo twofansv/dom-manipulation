@@ -3,54 +3,68 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Simple DOM example</title>
-
+    <title>Shopping list example</title>
     <style>
-    .highlight {
-    color: white;
-    background-color: black;
-    padding: 10px;
-    width: 250px;
-    text-align: center;
-    }
+      li {
+        margin-bottom: 10px;
+      }
+
+      li button {
+        font-size: 12px;
+        margin-left: 20px;
+        color: #666;
+      }
     </style>
-
-
-
   </head>
+
   <body>
-      <section>
-        <img src="dinosaur.png" alt="A red Tyrannosaurus Rex: A two legged dinosaur standing upright like a human, with small arms, and a large head with lots of sharp teeth.">
-        <p>Here we will add a link to the <a href="https://www.mozilla.org/">Mozilla homepage</a></p>
-      </section>
+
+    <h1>My shopping list</h1>
+
+    <form>
+      <label for="item">Enter a new item:</label>
+      <input type="text" name="item" id="item">
+      <button>Add items</button>
+    </form>
+
+    <ul>
+
+    </ul>
+
+    <script>
+      const items = document.querySelector('ul');
+      const inputItems = document.querySelector('input');
+      const addItem = document.querySelector('button');
+
+      addItem.addEventListener('click', event => {
+      
+        event.preventDefault();
+
+        const data = inputItems.value;
+        inputItems.value = "";
+
+        const listItems = document.createElement('li');
+        const itemName = document.createElement('span');
+        const rmvItem = document.createElement('button');
+
+        itemName.textContent = data;
+        listItems.appendChild(itemName);
+        listItems.appendChild(rmvItem);
+
+        
+        rmvItem.textContent = 'DELETE';
+
+        items.appendChild(listItems);
+
+        rmvItem.addEventListener('click', () => items.removeChild(listItems));
+
+        inputItems.focus();
+
+      });
+      
+
+
+
+    </script>
   </body>
-  <script>
-    const link = document.querySelector('a');
-
-    link.textContent = "Mozilla Developer Network";
-    link.href = "https://developer.mozilla.org";
-
-    const section = document.querySelector("section");
-
-    const paragraph = document.createElement('p');
-
-    paragraph.textContent = "This is a paragraph";
-
-    section.appendChild(paragraph);
-
-    const text = document.createTextNode(" — the premier source for web development knowledge.")
-
-    const linkPara = document.querySelector("p");
-
-    linkPara.appendChild(text);
-
-    section.appendChild(linkPara);
-
-    //linkPara.remove();
-
-    paragraph.classList.add('highlight');
-
-
-
-  </script>
 </html>
